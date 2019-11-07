@@ -1,0 +1,14 @@
+* The serine transporter SdaC prevents cell lysis upon glucose depletion in /Escherichia coli/
+
+
+Michelle A. Kriner and Arvind R. Subramaniam
+
+Basic Sciences Division and Computational Biology Section of the Public Health Sciences Division, Fred Hutchinson Cancer Research Center, Seattle, WA 98109, USA
+
+*** Abstract
+
+The amino acid serine plays diverse metabolic roles, yet bacteria actively degrade exogenously provided serine via deamination to pyruvate. Serine deamination is thought to be a detoxification mechanism due to the ability of serine to inhibit several biosynthetic reactions, but this pathway remains highly active even in nutrient‐replete conditions. While investigating the physiological roles of serine deamination in different growth conditions, we discovered that /Escherichia coli/ cells lacking the /sdaCB/ operon, which encodes the serine transporter SdaC and the serine deaminase SdaB, lyse upon glucose depletion in a medium containing no exogenous serine but all other amino acids and nucleobases. Unexpectedly, this lysis phenotype can be recapitulated by deleting sdaC alone and can be rescued by heterologous expression of SdaC. Lysis of /ΔsdaC/ cells can be prevented by omitting glycine from the medium, inhibiting the glycine cleavage system, or by increasing alanine availability. Together, our results reveal that the serine transporter SdaC plays a critical role in maintaining amino acid homeostasis during shifts in nutrient availability in /E. coli/.
+
+*** Citation
+
+[[https://onlinelibrary.wiley.com/doi/full/10.1002/mbo3.960][Kriner MA, Subramaniam AR. 2019. The serine transporter SdaC prevents cell lysis upon glucose depletion in /Escherichia coli/. Microbiology Open.]]

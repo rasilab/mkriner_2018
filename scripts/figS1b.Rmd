@@ -1,0 +1,45 @@
+---
+title: "OD/yfp curves for Microbiology Open review"
+author: "Michelle Kriner"
+date: "September 22, 2019"
+output: html_document
+---
+
+### Import packages & data
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(dplyr)
+library(tidyr)
+library(stringr)
+library(ggplot2)
+
+# import data
+data <- read.delim('20190913_review_od_yfp.tsv', sep='\t') %>%
+  mutate(time = time/60)
+annotations <- read.delim('20190913_review_ann.tsv', sep='\t')
+
+# color palette
+cbPalette <-  c("#000000","#E69F00","#56B4E9","#009E73","#F0E442","#0072B2","#D55E00")
+```
+### Plot serine re-addition experiment
+```{r}
+df_addser <- data %>%
+  right_join(annotations, by = "well") %>% 
+  filter(expt == "ser_readdition") %>% 
+  mutate(serine = if_else(str_detect(well, "^D"), "yes", "no")) %>% 
+  #filter(str_detect(genotype, "^serA")) %>%
+  mutate(group = paste0(serine, strain))
+
+ggplot(df_addser, aes(x = time, y = od, color = strain, 
+             shape = serine, group = group)) +
+  geom_jitter(size = 1, alpha=0.5, height=0, width=1) +
+  scale_color_manual(values = cbPalette,
+                     labels=c('wild-type', expression(italic(Delta*'sdaCB')))) +
+  stat_summary(aes(group=group), fun.y=mean, geom='line') +
+  theme_classic() +
+  theme(axis.text=element_text(size=10),
+        legend.text = element_text(size=10)) +
+  labs(x='time (min)', y='optical density (600nm)', col='genotype')
+ggsave('fig_S1B.pdf', width=4, height=2.2, units='in', device=cairo_pdf)
+```
+
